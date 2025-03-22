@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Skill | Learning App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+        
+        .card-header {
+            border-radius: 10px 10px 0 0 !important;
+        }
+        
+        .form-floating label {
+            color: #6c757d;
+        }
+        
+        .help-text {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+        
+        .skill-example {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Learning App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tutor.dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('tutor.add_skill') }}">Add Skill</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tutor.upload_resource') }}">Upload Resource</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('tutor.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Add Skill</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Add New Skill</h5>
+                </div>
+                <div class="card-body">
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    
+                    <form method="POST" action="{{ url_for('tutor.add_skill') }}">
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Skill Name" required>
+                                <label for="name">Skill Name</label>
+                            </div>
+                            <div class="help-text mt-1">
+                                Enter a clear, concise name for the skill (e.g., "Python Programming", "Data Analysis")
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="description" name="description" style="height: 150px" placeholder="Description" required></textarea>
+                                <label for="description">Description</label>
+                            </div>
+                            <div class="help-text mt-1">
+                                Provide a comprehensive description of the skill, what it covers, and why it's valuable to learn
+                            </div>
+                        </div>
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="{{ url_for('tutor.dashboard') }}" class="btn btn-outline-secondary me-md-2">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Add Skill</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Skill Examples Section -->
+            <div class="card">
+                <div class="card-header bg-light">
+                    <h5 class="mb-0">Example Skills</h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">Here are some examples of well-defined skills:</p>
+                    
+                    <div class="skill-example">
+                        <h5>Python Programming</h5>
+                        <p>Python is a high-level, interpreted programming language known for its readability and versatility. This skill covers Python syntax, data structures, control flow, functions, object-oriented programming principles, and common libraries. Learning Python is valuable for web development, data analysis, machine learning, automation, and more.</p>
+                    </div>
+                    
+                    <div class="skill-example">
+                        <h5>Data Visualization</h5>
+                        <p>Data visualization is the graphical representation of information and data. This skill covers principles of effective visualization, common chart types, tools like Matplotlib, Seaborn, and Tableau, and best practices for creating clear, insightful, and compelling visual representations of data. Essential for data scientists, analysts, and anyone who needs to communicate data-driven insights.</p>
+                    </div>
+                    
+                    <div class="skill-example">
+                        <h5>Web Development Fundamentals</h5>
+                        <p>Web development fundamentals cover the core technologies that power the web: HTML for structure, CSS for styling, and JavaScript for interactivity. This skill includes creating responsive layouts, understanding the DOM, implementing common UI patterns, and following web standards and accessibility guidelines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Resources - {{ skill.name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Learning App</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('user.dashboard') }}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('user.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active">{{ skill.name }} Resources</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Skill Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>{{ skill.name }}</h5>
+                        <p>{{ skill.description }}</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">Your Level:</div>
+                            <div class="progress flex-grow-1" style="height: 25px;">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: {{ proficiency*20 }}%">
+                                    {{ proficiency }}/5
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <a href="{{ url_for('user.start_assessment', skill_id=skill.id) }}" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-repeat"></i> Reassess Skill
+                            </a>
+                            <a href="{{ url_for('user.start_chat', skill_id=skill.id) }}" class="btn btn-outline-info">
+                                <i class="bi bi-chat-dots"></i> Chat About This Skill
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Recommended Learning Resources</h4>
+                    </div>
+                    <div class="card-body">
+                        {% if resources %}
+                        <div class="list-group">
+                            {% for resource in resources %}
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{ resource.title }}</h5>
+                                    <span class="badge rounded-pill {% if resource.proficiency_level <= proficiency %}bg-success{% elif resource.proficiency_level == proficiency+1 %}bg-warning{% else %}bg-danger{% endif %}">
+                                        Level {{ resource.proficiency_level }}
+                                    </span>
+                                </div>
+                                <div class="mb-1">
+                                    {% if resource.content_type == 'text' %}
+                                    <span class="badge bg-info">Text</span>
+                                    {% elif resource.content_type == 'pdf' %}
+                                    <span class="badge bg-danger">PDF</span>
+                                    {% endif %}
+                                </div>
+                                <div class="mt-2">
+                                    {% if resource.content_type == 'text' %}
+                                    <button class="btn btn-sm btn-outline-primary view-resource" data-bs-toggle="modal" data-bs-target="#resourceModal" data-resource-id="{{ resource.id }}" data-resource-title="{{ resource.title }}" data-resource-content="{{ resource.content }}">
+                                        <i class="bi bi-eye"></i> View Content
+                                    </button>
+                                    {% elif resource.content_type == 'pdf' %}
+                                    <a href="/uploads/{{ resource.file_path }}" target="_blank" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-file-earmark-pdf"></i> Open PDF
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle"></i> No resources available for your skill level yet.
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Resource Modal -->
+    <div class="modal fade" id="resourceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resourceModalTitle">Resource Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="resourceContent" class="p-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light mt-5 py-3">
+        <div class="container text-center">
+            <p class="text-muted mb-0">Learning App &copy; 2025</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle resource view buttons
+            const viewButtons = document.querySelectorAll('.view-resource');
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const title = this.getAttribute('data-resource-title');
+                    const content = this.getAttribute('data-resource-content');
+                    
+                    document.getElementById('resourceModalTitle').textContent = title;
+                    document.getElementById('resourceContent').innerHTML = content;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
