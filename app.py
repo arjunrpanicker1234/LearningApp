@@ -9,6 +9,7 @@ import os
 from datetime import datetime
 
 app = Flask(__name__)
+app.secret_key = 'abc123' 
 app.config.from_object(Config)
 
 # Initialize extensions
@@ -38,6 +39,42 @@ def page_not_found(e):
 def internal_server_error(e):
     return render_template('500.html'), 500
 
+@app.route('/api/health')
+def health_check():
+    """Health check endpoint to verify system status"""
+    health = {
+        "status": "ok",
+        "timestamp": datetime.utcnow().isoformat(),
+        "components": {
+            "app": "ok",
+            "database": "unknown",
+            "llm_api": "unknown"
+        }
+    }
+    
+    # Check database
+    try:
+        db.session.execute('SELECT 1')
+        health["components"]["database"] = "ok"
+    except Exception as e:
+        health["components"]["database"] = "error"
+        health["status"] = "degraded"
+    
+    # Check LLM API
+    from services.llm_service import LLMService
+    llm = LLMService()
+    try:
+        response = llm._call_llm("Hello, are you working?")
+        if response:
+            health["components"]["llm_api"] = "ok"
+        else:
+            health["components"]["llm_api"] = "degraded"
+            health["status"] = "degraded"
+    except Exception as e:
+        health["components"]["llm_api"] = "error"
+        health["status"] = "degraded"
+    
+    return jsonify(health)
 # Create the database tables
 with app.app_context():
     if not os.path.exists(app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')):

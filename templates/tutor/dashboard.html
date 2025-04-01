@@ -3,40 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutor Dashboard | Learning App</title>
+    <title>Tutor Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <style>
-        .dashboard-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .dashboard-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .stat-card {
-            border-radius: 10px;
-            border-left: 5px solid;
-        }
-        
-        .stat-card-blue {
-            border-left-color: #4e73df;
-        }
-        
-        .stat-card-green {
-            border-left-color: #1cc88a;
-        }
-        
-        .stat-card-info {
-            border-left-color: #36b9cc;
-        }
-        
-        .table-responsive {
-            overflow-x: auto;
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -48,15 +16,6 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('tutor.dashboard') }}">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('tutor.add_skill') }}">Add Skill</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('tutor.upload_resource') }}">Upload Resource</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
                     </li>
                 </ul>
@@ -65,249 +24,109 @@
     </nav>
 
     <div class="container mt-4">
-        <h1 class="mb-4">Welcome, {{ current_user.username }}</h1>
-        
-        <!-- Stats Overview -->
-        <div class="row mb-4">
-            <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-0 shadow stat-card stat-card-blue">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Skills</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ skills|length }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="bi bi-journal-text text-gray-300" style="font-size: 2rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-0 shadow stat-card stat-card-green">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Resources</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ resources|length }}</div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="bi bi-file-earmark-text text-gray-300" style="font-size: 2rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-xl-4 col-md-6 mb-4">
-                <div class="card border-0 shadow stat-card stat-card-info">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">PDF Resources</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    {{ resources|selectattr('content_type', 'equalto', 'pdf')|list|length }}
-                                </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="bi bi-file-earmark-pdf text-gray-300" style="font-size: 2rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Quick Actions -->
-        <div class="row mb-4">
-            <div class="col-12">
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Quick Actions</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <a href="{{ url_for('tutor.add_skill') }}" class="btn btn-outline-primary w-100 py-3">
-                                    <i class="bi bi-plus-circle me-2"></i> Add New Skill
-                                </a>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <a href="{{ url_for('tutor.upload_resource') }}" class="btn btn-outline-success w-100 py-3">
-                                    <i class="bi bi-upload me-2"></i> Upload Resource
-                                </a>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <a href="#" class="btn btn-outline-info w-100 py-3" data-bs-toggle="modal" data-bs-target="#helpModal">
-                                    <i class="bi bi-question-circle me-2"></i> Help Guide
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Skills and Resources -->
         <div class="row">
-            <!-- Skills Section -->
-            <div class="col-md-6 mb-4">
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Your Skills</h5>
-                        <a href="{{ url_for('tutor.add_skill') }}" class="btn btn-sm btn-light">
-                            <i class="bi bi-plus"></i> Add
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        {% if skills %}
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Description</th>
-                                            <th>Resources</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for skill in skills %}
-                                            <tr>
-                                                <td>{{ skill.name }}</td>
-                                                <td>{{ skill.description|truncate(30) }}</td>
-                                                <td>
-                                                    {{ resources|selectattr('skill_id', 'equalto', skill.id)|list|length }}
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                        {% else %}
-                            <div class="alert alert-info">
-                                No skills created yet. <a href="{{ url_for('tutor.add_skill') }}">Add a skill</a> to get started.
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
+            <div class="col-12">
+                <h1>Tutor Dashboard</h1>
+                <p class="lead">Welcome, {{ current_user.username }}</p>
             </div>
-            
-            <!-- Resources Section -->
-            <div class="col-md-6 mb-4">
-                <div class="card shadow">
-                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Recent Resources</h5>
-                        <a href="{{ url_for('tutor.upload_resource') }}" class="btn btn-sm btn-light">
-                            <i class="bi bi-plus"></i> Upload
-                        </a>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h4>Manage Skills</h4>
                     </div>
                     <div class="card-body">
-                        {% if resources %}
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Title</th>
-                                            <th>Type</th>
-                                            <th>Level</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {% for resource in resources|sort(attribute='uploaded_at', reverse=true)|slice(0, 5) %}
-                                            <tr>
-                                                <td>{{ resource.title|truncate(20) }}</td>
-                                                <td>
-                                                    <span class="badge {% if resource.content_type == 'pdf' %}bg-danger{% else %}bg-primary{% endif %}">
-                                                        {{ resource.content_type }}
-                                                    </span>
-                                                </td>
-                                                <td>{{ resource.proficiency_level }}/5</td>
-                                                <td>
-                                                    <a href="{{ url_for('tutor.view_resource', resource_id=resource.id) }}" 
-                                                       class="btn btn-sm btn-outline-primary">
-                                                        <i class="bi bi-eye"></i>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                    </tbody>
-                                </table>
-                            </div>
-                            {% if resources|length > 5 %}
-                                <div class="text-center mt-3">
-                                    <button class="btn btn-outline-primary btn-sm" id="viewAllResources">
-                                        View All {{ resources|length }} Resources
-                                    </button>
+                        <p>Create and manage skills for students to learn.</p>
+                        <a href="{{ url_for('tutor.add_skill') }}" class="btn btn-primary">Add New Skill</a>
+                        
+                        <div class="mt-4">
+                            <h5>Current Skills</h5>
+                            {% if skills %}
+                                <div class="list-group">
+                                    {% for skill in skills %}
+                                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <h6 class="mb-0">{{ skill.name }}</h6>
+                                                <small>{{ skill.description }}</small>
+                                            </div>
+                                            <span class="badge bg-primary rounded-pill">
+                                                {{ skill.resources|length }} Resources
+                                            </span>
+                                        </div>
+                                    {% endfor %}
                                 </div>
+                            {% else %}
+                                <p class="text-muted">No skills have been added yet.</p>
                             {% endif %}
-                        {% else %}
-                            <div class="alert alert-info">
-                                No resources uploaded yet. <a href="{{ url_for('tutor.upload_resource') }}">Upload a resource</a> to get started.
-                            </div>
-                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h4>Learning Resources</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Upload and manage learning resources for your students.</p>
+                        <a href="{{ url_for('tutor.upload_resource') }}" class="btn btn-primary">Upload New Resource</a>
+                        
+                        <div class="mt-4">
+                            <h5>Your Uploaded Resources</h5>
+                            {% if resources %}
+                                <div class="list-group">
+                                    {% for resource in resources %}
+                                        <a href="{{ url_for('tutor.view_resource', resource_id=resource.id) }}" class="list-group-item list-group-item-action">
+                                            <div class="d-flex w-100 justify-content-between">
+                                                <h6 class="mb-1">{{ resource.title }}</h6>
+                                                <small>Level: {{ resource.proficiency_level }}/5</small>
+                                            </div>
+                                            <p class="mb-1">
+                                                {% for skill in skills %}
+                                                    {% if skill.id == resource.skill_id %}
+                                                        {{ skill.name }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </p>
+                                            <small>{{ resource.content_type }} - {{ resource.uploaded_at.strftime('%Y-%m-%d') }}</small>
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <p class="text-muted">You haven't uploaded any resources yet.</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                        <h4>Analytics & Insights</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>View student progress and resource effectiveness.</p>
+                        <div class="alert alert-info">
+                            Analytics dashboard coming soon! This feature will allow you to track student progress and see which resources are most effective.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Help Modal -->
-    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title" id="helpModalLabel">Tutor Guide</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5>Getting Started</h5>
-                    <p>As a tutor, you can create skills and upload learning resources for students.</p>
-                    
-                    <h5>Adding Skills</h5>
-                    <p>Click on "Add Skill" to create a new skill category. Each skill should have a name and description.</p>
-                    
-                    <h5>Uploading Resources</h5>
-                    <p>Resources can be text content or PDF files. For each resource, specify:</p>
-                    <ul>
-                        <li>The skill it belongs to</li>
-                        <li>A descriptive title</li>
-                        <li>The proficiency level (1-5)</li>
-                        <li>Content type (text or PDF)</li>
-                    </ul>
-                    
-                    <h5>Proficiency Levels</h5>
-                    <p>Use the following guidelines for proficiency levels:</p>
-                    <ol>
-                        <li><strong>Beginner</strong> - No prior knowledge required</li>
-                        <li><strong>Elementary</strong> - Basic concepts covered</li>
-                        <li><strong>Intermediate</strong> - Requires some prior knowledge</li>
-                        <li><strong>Advanced</strong> - Deep understanding of the subject</li>
-                        <li><strong>Expert</strong> - Complex and specialized content</li>
-                    </ol>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
+
+    <footer class="mt-5 py-3 bg-light">
+        <div class="container text-center">
+            <p class="text-muted mb-0">Learning Application &copy; 2025</p>
         </div>
-    </div>
-    
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // View all resources button
-            const viewAllBtn = document.getElementById('viewAllResources');
-            if (viewAllBtn) {
-                viewAllBtn.addEventListener('click', function() {
-                    // In a real app, this would link to a page with all resources
-                    // or expand the current table
-                    alert('This would show all resources in a full page view');
-                });
-            }
-        });
-    </script>
 </body>
 </html>

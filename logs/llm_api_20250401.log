@@ -1,0 +1,230 @@
+2025-04-01 08:30:48,948 - ERROR - LLM Error - Function: _call_llm - Error: Request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=60)
+2025-04-01 08:31:12,518 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:31:12,518 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:31:12,518 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:31:12,518 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:31:12,518 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:31:12,518 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:32:09,667 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,667 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,667 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,669 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:32:09,669 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:32:09,669 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:32:09,669 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:32:09,669 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:32:09,669 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:32:09,680 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,680 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,680 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,680 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:32:09,680 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:32:09,680 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:32:09,680 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:32:09,680 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:32:09,680 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:32:09,680 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,680 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:32:09,680 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,408 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,408 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,408 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,408 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,408 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,408 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,409 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,409 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,409 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,409 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,409 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,409 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,410 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,410 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,410 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,411 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,411 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,411 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,411 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,411 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,411 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:36:21,411 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,411 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,411 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:36:21,411 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,411 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:36:21,411 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+        Format t...
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:43:58,580 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Extra data: line 11 column 6 (char 659)
+2025-04-01 08:54:29,222 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:54:29,222 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:54:29,222 - INFO - LLM Request - Function: generate_questions
+2025-04-01 08:54:29,222 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 08:54:29,222 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 08:54:29,222 - INFO - Prompt: 
+        Generate 2 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 08:55:37,044 - INFO - LLM Response - Function: generate_questions - Status: Success
+2025-04-01 08:55:37,044 - INFO - LLM Response - Function: generate_questions - Status: Success
+2025-04-01 08:55:37,044 - INFO - LLM Response - Function: generate_questions - Status: Success
+2025-04-01 08:55:37,044 - INFO - Response: [{"question_text": "What is the purpose of the `with` statement in Python?", "options": ["To define ...
+2025-04-01 08:55:37,044 - INFO - Response: [{"question_text": "What is the purpose of the `with` statement in Python?", "options": ["To define ...
+2025-04-01 08:55:37,044 - INFO - Response: [{"question_text": "What is the purpose of the `with` statement in Python?", "options": ["To define ...
+2025-04-01 09:00:19,833 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:00:19,834 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:02:21,877 - ERROR - LLM Error - Function: _call_llm - Error: Request failed: HTTPConnectionPool(host='localhost', port=11434): Read timed out. (read timeout=120)
+2025-04-01 09:02:21,879 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:02:21,879 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:03:35,266 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:04,965 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:04,966 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:05,003 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:09,202 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:09,202 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:09,202 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:10,148 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:10,148 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:10,150 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:10,367 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:10,368 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:10,369 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:10,684 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:10,685 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:10,685 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:10,894 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:10,895 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:10,899 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:11,733 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:11,733 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:11,733 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:04:11,931 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:04:11,931 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:04:11,931 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)
+2025-04-01 09:05:50,089 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:05:50,089 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about JavaScript at difficulty level 3/5.
+    
+    You...
+2025-04-01 09:07:18,630 - INFO - LLM Response - Function: generate_questions - Status: Success
+2025-04-01 09:07:18,631 - INFO - Response: [{"question_text": "What is the purpose of the `this` keyword in JavaScript?", "options": ["To acces...
+2025-04-01 09:10:43,007 - INFO - LLM Request - Function: generate_questions
+2025-04-01 09:10:43,008 - INFO - Prompt: 
+        Generate 5 multiple-choice questions about Python at difficulty level 3/5.
+    
+    You MUS...
+2025-04-01 09:10:43,011 - ERROR - LLM Error - Function: generate_questions - Error: JSON parsing error: Expecting ',' delimiter: line 16 column 62 (char 1026)

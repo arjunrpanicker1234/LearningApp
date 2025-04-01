@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, jsonify, flash
+from flask import Blueprint, render_template, redirect, url_for, request, jsonify, flash, session
 from flask_login import login_required, current_user
 from models import db, Skill, Assessment, Resource, ChatSession, ChatMessage
 from services.llm_service import LLMService
